@@ -1,6 +1,6 @@
 
-#ifndef TIMER_H_
-#define TIMER_H_
+#ifndef APP_H_
+#define APP_H_
 
 #include "watchdogUpdate.h"
 #include "rotaryEncoder.h"

@@ -3,7 +3,8 @@
 #define STATE_H_ 
 
 #include <U8x8lib.h>
-#include "eventQueue.h"
+#include "timerList.h"
+
 
 struct State
 {
@@ -18,7 +19,8 @@ struct State
 
     }
 
-    U8x8 u8x8; 
+    U8x8         u8x8; 
+    TimerList<4> timers;
 
 };
 
