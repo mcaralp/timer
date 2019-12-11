@@ -36,7 +36,6 @@ class EventQueue
         {
             if(m_head == m_tail) return NoEvent;
 
-
             EventType type = m_queue[m_tail];
             
             if(++m_tail == size) m_tail = 0;
@@ -49,8 +48,8 @@ class EventQueue
     
         uint8_t m_queue[size];
 
-        // If m_head is not volatile, the compiler optimize the condition 
-        // if(m_head == m_tail) to if(true)
+        // If m_head is not volatile, the compiler optimizes the condition 
+        // if(m_head == m_tail) at line 37 to if(true)
         volatile uint8_t m_head;
         uint8_t m_tail;
     

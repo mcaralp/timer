@@ -23,7 +23,10 @@ class RotaryEncoder
         RotaryEncoder(EventQueue & events)
             : m_rotaryState(RotaryStart), m_events(events)
         {
-        
+            m_states[0] = true;
+            m_states[1] = true;
+            m_states[2] = true;
+
             init();
         }
 

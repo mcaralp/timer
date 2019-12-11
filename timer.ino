@@ -11,31 +11,23 @@ ISR(WDT_vect)
     app.updateWatchdog();
 }
 
-
 ISR(PCINT2_vect) 
 {
     app.updateEncoder();
 }
 
-
 void setup()
 {
-
     Serial.begin(115200);
 
+    app.init();
 }
-
 
 void loop()
 {
-    while(true)
+    if(app.update())
     {
-
-        if(app.update())
-        {
-            set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-            sleep_mode();
-        }
+        set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+        sleep_mode();
     }
-
 }
