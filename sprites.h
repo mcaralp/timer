@@ -4,7 +4,19 @@
 
 namespace Sprite
 {
-    const char digits[10][3][24] = 
+    const PROGMEM char underline[8] = 
+    {
+        0b00000110,
+        0b00000110,
+        0b00000110,
+        0b00000110,
+        0b00000110,
+        0b00000110,
+        0b00000110,
+        0b00000110,
+    };
+
+    const PROGMEM char digits[10][3][24] = 
     {
         {
             {
@@ -807,8 +819,8 @@ namespace Sprite
             }
         }
     };
-    
-    const char dot[3][24] = 
+
+    const PROGMEM char dot[3][24] = 
     {
         {
             0b00000000,
@@ -889,7 +901,7 @@ namespace Sprite
             0b00000000
         }
     };
-    const char start[2][80] = 
+    const PROGMEM char start[2][80] = 
     {
         {
             0b00000000,
@@ -1056,7 +1068,7 @@ namespace Sprite
             0b00000000
         }
     };
-    const char stop[2][64] = 
+    const PROGMEM char stop[2][64] = 
     {
         {
             0b00000000,

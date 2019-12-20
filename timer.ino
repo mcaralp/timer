@@ -3,8 +3,13 @@
 #include <avr/power.h>
 
 #include "app.h"
+#include "animation.h"
+
+#include "ledsHSV.h"
+#include "musicBip.h"
 
 App app;
+Animation anim(ledsHSV, musicBip);
 
 ISR(WDT_vect)
 {
@@ -23,11 +28,24 @@ void setup()
     app.init();
 }
 
+int cpt = 0;
+
 void loop()
 {
-    if(app.update())
+    switch(app.update())
     {
-        set_sleep_mode(SLEEP_MODE_PWR_DOWN);
-        sleep_mode();
+        case App::Sleep:
+            anim.stop();
+            set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+            sleep_mode();
+            break;
+
+        case App::Animation:
+            anim.update();
+            break;
+
+        case App::Active:
+            anim.stop();
+            break;
     }
 }
